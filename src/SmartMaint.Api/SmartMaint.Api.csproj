@@ -14,4 +14,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartMaint.Persistencia\SmartMaint.Persistencia.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -17,13 +17,13 @@
             Empresas = new List<Empresa>();
         }
 
-        public Usuario(string nome, string email, string senha, DateTime dataCadastro, Perfil perfil)
+        public Usuario(string nome, string email, string senha, Perfil perfil)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
             Ativo = true;
-            DataCadastro = dataCadastro;
+            DataCadastro = DateTime.UtcNow;
             Perfil = perfil;
         }
 
@@ -34,7 +34,7 @@
             Senha = senha;
             Ativo = ativo;
             Perfil = perfil;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
     }
 }

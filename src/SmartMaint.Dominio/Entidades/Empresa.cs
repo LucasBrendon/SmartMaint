@@ -41,7 +41,7 @@
             Celular = celular;
             Email = email;
             Ativa = true;
-            DataCadastro = DateTime.Now;
+            DataCadastro = DateTime.UtcNow;
             NumeroEndereco = numeroEndereco;
             ComplementoEndereco = complementoEndereco;
             Endereco = endereco;
@@ -62,19 +62,19 @@
             Celular = celular;
             Email = email;
             Ativa = ativa;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
 
         public void Ativar()
         {
             Ativa = true;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
 
         public void Desativar()
         {
             Ativa = false;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
     }
 }

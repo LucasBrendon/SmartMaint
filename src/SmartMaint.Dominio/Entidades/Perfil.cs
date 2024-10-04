@@ -25,7 +25,7 @@ namespace SmartMaint.Dominio.Entidades
             TipoPerfil = tipoPerfil;
             TipoAcoesPerfil = tipoAcoesPerfil;
             Ativo = true;
-            DataCadastro = DateTime.Now;
+            DataCadastro = DateTime.UtcNow;
             Empresa = empresa;
         }
 
@@ -35,7 +35,7 @@ namespace SmartMaint.Dominio.Entidades
             TipoPerfil = tipoPerfil;
             TipoAcoesPerfil = tipoAcoesPerfil;
             Ativo = ativo;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
     }
 }

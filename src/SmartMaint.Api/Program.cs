@@ -1,20 +1,25 @@
+using Microsoft.EntityFrameworkCore;
 using SmartMaint.Persistencia;
+using SmartMaint.Persistencia.Contexto;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.ResolverDependenciasPersistencia();
+builder.Services.ResolverDependenciasPersistencia(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using var scope = app.Services.CreateScope();
+
+var contexto = scope.ServiceProvider.GetService<EscritaDbContexto>();
+contexto.Database?.Migrate();
+
+var inicializador = scope.ServiceProvider.GetService<DbContextoInicializador>();
+inicializador?.GerarConfiguracaoInicial();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartMaint.Aplicacao.Interfaces.Persistencia;
 using SmartMaint.Dominio.Entidades;
+using System.Reflection;
 
 namespace SmartMaint.Persistencia.Contexto
 {
@@ -8,6 +9,11 @@ namespace SmartMaint.Persistencia.Contexto
     {
         public EscritaDbContexto(DbContextOptions<EscritaDbContexto> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
         public DbSet<Empresa> Empresas { get; set; }

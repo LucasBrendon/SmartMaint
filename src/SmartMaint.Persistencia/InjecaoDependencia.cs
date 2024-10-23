@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SmartMaint.Aplicacao.Interfaces.Persistencia;
+using SmartMaint.Aplicacao.Interfaces.Repositorios;
 using SmartMaint.Persistencia.Contexto;
+using SmartMaint.Persistencia.Interfaces;
+using SmartMaint.Persistencia.Repositorios;
 
 namespace SmartMaint.Persistencia
 {
     public static class InjecaoDependencia
     {
-        public static IServiceCollection ResolverDependenciasPersistencia(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistencia(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<EscritaDbContexto>(options =>
                     options.UseNpgsql(configuration.GetConnectionString("ConnectionDbEscrita")));
@@ -18,8 +20,9 @@ namespace SmartMaint.Persistencia
 
             services.AddScoped<DbContextoInicializador>();
             services.AddScoped<IEscritaDbContexto, EscritaDbContexto>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ILeituraDbContexto, LeituraDbContexto>();
+
+            services.AddScoped<IEnderecoRepositorio, EnderecoRepositorio>();
 
             return services;
         }

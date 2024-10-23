@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
   </ItemGroup>
 
@@ -15,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Repositorios\" />
+    <Folder Include="Servicos\" />
   </ItemGroup>
 
 </Project>

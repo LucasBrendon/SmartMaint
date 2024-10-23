@@ -1,12 +1,21 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using SmartMaint.Aplicacao;
+using SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar;
 using SmartMaint.Persistencia;
 using SmartMaint.Persistencia.Contexto;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.ResolverDependenciasPersistencia(builder.Configuration);
+builder.Services.AddAplicacao();
+builder.Services.AddPersistencia(builder.Configuration);
+
+builder.Services.AddValidatorsFromAssemblyContaining<CriarEnderecoCommandValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

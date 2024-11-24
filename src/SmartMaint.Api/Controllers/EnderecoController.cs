@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SmartMaint.Api.Configuration;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar;
+using SmartMaint.Aplicacao.Aplicacao.Enderecos.Consultas.ConsultarPorCep;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Consultas.ListarEnderecos;
 
 namespace SmartMaint.Api.Controllers
@@ -16,13 +18,19 @@ namespace SmartMaint.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Criar(CriarEnderecoCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(command), "Endereço criado com sucesso!"));
         }
 
         [HttpGet]
         public async Task<IActionResult> Listar()
         {
-            return Ok(await _mediator.Send(new ListarEnderecosQuery()));
+            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(new ListarEnderecosQuery())));
+        }
+
+        [HttpGet("{cep}")]
+        public async Task<IActionResult> Listar(string cep)
+        {
+            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(new ConsultarEnderecoPorCepQuery { Cep = cep})));
         }
     }
 }

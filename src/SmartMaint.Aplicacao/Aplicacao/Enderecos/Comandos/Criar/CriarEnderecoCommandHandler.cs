@@ -17,16 +17,7 @@ namespace SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar
 
         public async Task<EnderecoViewModel> Handle(CriarEnderecoCommand request, CancellationToken cancellationToken)
         {
-            Endereco endereco;
-
-            if (request.Id is not null)
-            {
-                endereco = await _enderecoRepositorio.ConsultarPorIdTracking(request.Id.Value);
-
-                return endereco.Adapt<EnderecoViewModel>();
-            }
-
-            endereco = new Endereco(request.Cep, request.Logradouro, request.Bairro, request.Localidade, request.Uf);
+            var endereco = new Endereco(request.Cep, request.Logradouro, request.Bairro, request.Localidade, request.Uf);
 
             await _enderecoRepositorio.Criar(endereco);
 

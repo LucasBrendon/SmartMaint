@@ -12,6 +12,7 @@ namespace SmartMaint.Persistencia
     {
         public static IServiceCollection AddPersistencia(this IServiceCollection services, IConfiguration configuration)
         {
+            //Configuração de contextos
             services.AddDbContext<EscritaDbContexto>(options =>
                     options.UseNpgsql(configuration.GetConnectionString("ConnectionDbEscrita")));
 
@@ -22,6 +23,7 @@ namespace SmartMaint.Persistencia
             services.AddScoped<IEscritaDbContexto, EscritaDbContexto>();
             services.AddScoped<ILeituraDbContexto, LeituraDbContexto>();
 
+            //Repositórios
             services.AddScoped<IEnderecoRepositorio, EnderecoRepositorio>();
 
             return services;

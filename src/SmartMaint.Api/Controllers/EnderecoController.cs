@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartMaint.Api.Configuration;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Consultas.ConsultarPorCep;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Consultas.ListarEnderecos;
+using SmartMaint.Compartilhado.ApiResponse;
 
 namespace SmartMaint.Api.Controllers
 {
@@ -18,19 +18,21 @@ namespace SmartMaint.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Criar(CriarEnderecoCommand command)
         {
-            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(command), "Endereço criado com sucesso!"));
+            return Ok(GenericResponse.SuccessResponse(await _mediator.Send(command), "Endereço criado com sucesso!"));
         }
 
         [HttpGet]
         public async Task<IActionResult> Listar()
         {
-            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(new ListarEnderecosQuery())));
+            return Ok(GenericResponse.SuccessResponse(await _mediator.Send(new ListarEnderecosQuery())));
         }
 
         [HttpGet("{cep}")]
-        public async Task<IActionResult> Listar(string cep)
+        public async Task<IActionResult> BuscarPorCep(string cep)
         {
-            return Ok(ApiResponse.SuccessResponse(await _mediator.Send(new ConsultarEnderecoPorCepQuery { Cep = cep})));
+            var result = await _mediator.Send(new ConsultarEnderecoPorCepQuery { Cep = cep });
+
+            return result is not null ? Ok(GenericResponse.SuccessResponse(result)) : NoContent();
         }
     }
 }

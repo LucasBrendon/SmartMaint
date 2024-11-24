@@ -17,7 +17,7 @@ namespace SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar
                 .WithMessage("Cep não foi informado.")
                 .Length(8, 8)
                 .WithMessage("Cep deve conter 8 caracteres.")
-                .Must(ValidarCepExistente)
+                .MustAsync(ValidarCepExistente)
                 .WithMessage("Cep já cadastrado.");
 
             RuleFor(x => x.Logradouro)
@@ -45,9 +45,9 @@ namespace SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar
                 .WithMessage("UF deve conter e 2 caracteres.");
         }
 
-        private bool ValidarCepExistente(string cep)
+        private async Task<bool> ValidarCepExistente(string cep, CancellationToken token)
         {
-            var endereco = _enderecoRepositorio.ConsultarPorCep(cep).Result;
+            var endereco = await _enderecoRepositorio.ConsultarPorCep(cep);
 
             return endereco is null;
         }

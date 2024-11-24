@@ -3,7 +3,7 @@ using SmartMaint.Persistencia.Contexto;
 
 namespace SmartMaint.Api.Configuration
 {
-    public static class ApplicationConfiguration
+    public static class DataBaseConfiguration
     {
         public static void InicializarBaseDeDados(IServiceProvider serviceProvider)
         {

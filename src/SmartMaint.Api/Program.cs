@@ -1,4 +1,5 @@
 using SmartMaint.Api.Configuration;
+using SmartMaint.Api.Middlewares;
 using SmartMaint.Aplicacao;
 using SmartMaint.Persistencia;
 
@@ -10,7 +11,8 @@ builder.Services.AddPersistencia(builder.Configuration);
 
 var app = builder.Build();
 
-ApplicationConfiguration.InicializarBaseDeDados(app.Services);
+DataBaseConfiguration.InicializarBaseDeDados(app.Services);
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

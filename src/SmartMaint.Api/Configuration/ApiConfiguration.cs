@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
+using MediatR;
 using SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar;
 
 namespace SmartMaint.Api.Configuration
@@ -10,34 +9,12 @@ namespace SmartMaint.Api.Configuration
         public static IServiceCollection AddApi(this IServiceCollection services)
         {
             services.AddValidatorsFromAssemblyContaining<CriarEnderecoCommandValidator>();
-            services.AddFluentValidationAutoValidation();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             services.AddControllers();
-
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
-            ConfigureResponseValidations(services);
-
             return services;
-        }
-
-        public static void ConfigureResponseValidations(IServiceCollection services)
-        {
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = context =>
-                {
-                    var errors = context.ModelState
-                        .Where(m => m.Value.Errors.Count > 0)
-                        .SelectMany(m => m.Value.Errors.Select(e => $"{e.ErrorMessage}"))
-                        .ToList();
-
-                    var result = ApiResponse.ErrorResponse("Validation Error", errors);
-
-                    return new BadRequestObjectResult(result);
-                };
-            });
         }
     }
 }

@@ -36,7 +36,7 @@ namespace SmartMaint.Aplicacao.Aplicacao.Enderecos.Comandos.Criar
                 .NotEmpty()
                 .WithMessage("Localidade não foi informando.")
                 .MaximumLength(100)
-                .WithMessage("Localidade deve contar no máximo 100 caracteres.");
+                .WithMessage("Localidade deve conter no máximo 100 caracteres.");
 
             RuleFor(x => x.Uf)
                 .NotEmpty()

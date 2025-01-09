@@ -39,5 +39,5 @@
 <h2>💻 Software Design</h2>
 <img src="https://github.com/user-attachments/assets/e957dec8-ed35-423e-b384-f639d7fbc813" alt="Texto Alternativo">
 
-<h1>Projeto em desenvolvimento</h1>
+<h1>⏳ Projeto em desenvolvimento</h1>
 

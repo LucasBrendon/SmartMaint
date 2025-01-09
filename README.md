@@ -1,6 +1,6 @@
 <h1>SmartMaint</h1>
 <p>SmartMaint é projeto desenvolvido com foco em estudo e implementação de ferramentas e tecnologias, sendo uma plataforma inovadora voltada para o setor de manutenção, projetada para aumentar a eficiência, reduzir custos e melhorar a qualidade do serviço.</p>
- <h1>Funcionalidades</h1>
+ <h1>📊 Funcionalidades</h1>
     <ul>
         <li>
             <strong>Agendamento automatizado de manutenção preventiva:</strong>  
@@ -36,7 +36,7 @@
   </li>
   <li><strong>Middleware:</strong> Implementado para tratamento centralizado de exceções e geração de respostas genéricas para o cliente.</li>
 </ul>
-<h2>Software Design</h2>
+<h2>💻 Software Design</h2>
 <img src="https://github.com/user-attachments/assets/e957dec8-ed35-423e-b384-f639d7fbc813" alt="Texto Alternativo">
 
 <h1>Projeto em desenvolvimento</h1>

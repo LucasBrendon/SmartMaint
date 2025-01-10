@@ -1,7 +1,7 @@
 <h1>📊SmartMaint</h1>
 <p>SmartMaint é projeto desenvolvido com foco em estudo e implementação de ferramentas e tecnologias, sendo uma plataforma inovadora voltada para o setor de manutenção, projetada para aumentar a eficiência, reduzir custos e melhorar a qualidade do serviço.</p>
  <h1>✅ Funcionalidades</h1>
-    <ul>
+    <ul> 
         <li>
             <strong>Agendamento automatizado de manutenção preventiva:</strong>  
             Realize a manutenção preventiva com base em análises preditivas para evitar falhas antes que ocorram, aumentando a confiabilidade e reduzindo os custos operacionais.

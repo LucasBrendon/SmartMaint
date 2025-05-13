@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMaint.Infraestrutura",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMaint.Compartilhado", "src\SmartMaint.Compartilhado\SmartMaint.Compartilhado.csproj", "{45907382-D87A-4F18-A730-84924FD05145}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "98-SmartMain-Testes", "98-SmartMain-Testes", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMaint.Testes", "smartMaint.Testes\SmartMaint.Testes\SmartMaint.Testes.csproj", "{6C95CA01-78DC-4989-AE21-9549A3537820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{45907382-D87A-4F18-A730-84924FD05145}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45907382-D87A-4F18-A730-84924FD05145}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45907382-D87A-4F18-A730-84924FD05145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C95CA01-78DC-4989-AE21-9549A3537820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C95CA01-78DC-4989-AE21-9549A3537820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C95CA01-78DC-4989-AE21-9549A3537820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C95CA01-78DC-4989-AE21-9549A3537820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,7 @@ Global
 		{657FA6B0-AAFF-42B9-B826-73BD8A8FDD0C} = {BAC0CB93-BD02-4187-8624-2D4936D1A28C}
 		{860385D4-83F1-4DFF-8DE2-F1C9BD614E22} = {BAC0CB93-BD02-4187-8624-2D4936D1A28C}
 		{45907382-D87A-4F18-A730-84924FD05145} = {90F23ED6-73DB-4503-BCB7-26A0FAD6D039}
+		{6C95CA01-78DC-4989-AE21-9549A3537820} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EBF9506-21BE-4EFC-B27D-3C21BBB54293}
